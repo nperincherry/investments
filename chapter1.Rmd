@@ -1,0 +1,42 @@
+---
+title: "Chapter 1"
+author: "Matt Brigida"
+date: "03/01/2015"
+output: html_document
+runtime: shiny
+---
+
+# Trading Securities
+
+
+
+## Trades, Orders, and the Limit Order Book
+
+
+```{r orderbook, echo=FALSE}
+## Let students enter orders and see how it affects an orderbook
+#{{{
+library(orderbook)
+## make a conditional input panel for entering a market or limit order
+inputPanel(
+)
+renderPlot({
+library(tseries)
+library(quantmod)
+  
+    x <- get.hist.quote(input$ticker1, start = input$startDate1, quote = "Close")
+    x <- xts(x)
+    r <<- Delt(x, type = 'log')[-1]
+
+    plot(density(r), main = "Normal versus Empirical Distribution", lty = 1, 
+        col = 1, lwd = 2, xlab = "Log-Returns in %/100") #, sub = "Matthew Brigida; Clarion UofP")
+
+    lines(density(rnorm(5e+05, mean = mean(r), sd = sd(r))), lty = 4, col = 2, 
+        lwd = 2)
+
+    legend("topright", c("Stock Return Density", "Normal Density"), col = c(1, 2), 
+           lty = c(1, 4), lwd = c(2, 2))
+})
+```
+
+## Next Section
