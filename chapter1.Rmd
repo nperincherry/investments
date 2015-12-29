@@ -1,10 +1,14 @@
 ---
-title: "Chapter 1"
+title: "Investments: Chapter 1"
 author: "Matt Brigida"
-date: "03/01/2015"
+date: "12/28/2015"
 output: html_document
 runtime: shiny
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 # Trading Securities
 
@@ -12,31 +16,27 @@ runtime: shiny
 
 ## Trades, Orders, and the Limit Order Book
 
-
-```{r orderbook, echo=FALSE}
-## Let students enter orders and see how it affects an orderbook
-#{{{
+```{r orderbook, echo = FALSE}
+## app to allow students enter order and see the effect on the limit orderbook
 library(orderbook)
-## make a conditional input panel for entering a market or limit order
+## make panel input conditinal
+## i'll also need a submit button
 inputPanel(
-)
-renderPlot({
-library(tseries)
-library(quantmod)
-  
-    x <- get.hist.quote(input$ticker1, start = input$startDate1, quote = "Close")
-    x <- xts(x)
-    r <<- Delt(x, type = 'log')[-1]
 
-    plot(density(r), main = "Normal versus Empirical Distribution", lty = 1, 
-        col = 1, lwd = 2, xlab = "Log-Returns in %/100") #, sub = "Matthew Brigida; Clarion UofP")
+    )
 
-    lines(density(rnorm(5e+05, mean = mean(r), sd = sd(r))), lty = 4, col = 2, 
-        lwd = 2)
+renderPrint({
+filename <- system.file("extdata",
+ "sample.txt", package = "orderbook")
+ ob <- orderbook(file = filename)
+ ob <- read.orders(ob, 10000)
+display(ob)
+add.order(ob, 11.37, 300, "ASK")
+    })
 
-    legend("topright", c("Stock Return Density", "Normal Density"), col = c(1, 2), 
-           lty = c(1, 4), lwd = c(2, 2))
-})
+
+
 ```
+
 
 ## Next Section
