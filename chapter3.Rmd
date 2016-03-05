@@ -1,0 +1,33 @@
+---
+title: "chapter3"
+author: "Matt Brigida"
+date: "March 4, 2016"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+The following app shows the option smirk over August 2015.
+
+```{r echo=FALSE, message=FALSE}
+library(threejs)
+options("scipen" = 100, "digits" = 6)
+inputPanel({
+  sliderInput("theTime", "Date/Time", value = c(2015080000000, 201508310000000), min = 2015080000000, max = 2015083100000, animate = TRUE)
+})
+renderScatterplotThree({
+ ez1509es1509 <- read.csv("august1509ez1509esPuts_for_plot.csv", header = TRUE)[, -1]
+tmp <- subset(ez1509es1509, Date > input$theTime[1])
+tmp <- subset(tmp, Date < input$theTime[2])
+## maybe sort to reverse moneyness -- so switches view
+    scatterplot3js(tmp, color=rainbow(length(ez1509es1509$Date)), labels = c("Time", "Moneyness", "Implied Volatility"))
+})
+
+
+
+```
+
