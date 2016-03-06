@@ -1,6 +1,5 @@
 ---
-title: "chapter3"
-author: "Matt Brigida"
+title: "Option Markets"
 date: "March 4, 2016"
 output: html_document
 runtime: shiny
@@ -10,6 +9,13 @@ runtime: shiny
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Constant Volatility
+
+We learned that Black-Scholes assumes a world where a stock's voltility is constant through time and for each strike price.  This assumption was made to make the mathematics and hedgeing argument easier, and not because it is consistent with what we observe in markets.  
+
+Along with chages in volatility over time, a stylized fact of financial markets is the 'option smirk'.  This is the observation that out-of-the-money options have higher implied volatility that in-the-money and at-the-money options. 
+
+Interestingly, prior to the 1987 stock market crash, the relationship of option moneyness to implied volatility was called the 'smile' because volatility was lowest for at-the-money options and increased for both out and in the money directions.  
 
 The following app shows the option smirk over August 2015.
 
@@ -17,17 +23,17 @@ The following app shows the option smirk over August 2015.
 library(threejs)
 options("scipen" = 100, "digits" = 6)
 inputPanel({
-  sliderInput("theTime", "Date/Time", value = c(2015080000000, 201508310000000), min = 2015080000000, max = 2015083100000, animate = TRUE)
+  sliderInput("theTime", "Day/Second", value = c(0000000, 310000000), min = 0000000, max = 3100000, animate = animationOptions(interval = 300), sep = "", step = 60)
 })
 renderScatterplotThree({
  ez1509es1509 <- read.csv("august1509ez1509esPuts_for_plot.csv", header = TRUE)[, -1]
+ ez1509es1509$Date <- ez1509es1509$Date - 2015080000000
 tmp <- subset(ez1509es1509, Date > input$theTime[1])
 tmp <- subset(tmp, Date < input$theTime[2])
 ## maybe sort to reverse moneyness -- so switches view
-    scatterplot3js(tmp, color=rainbow(length(ez1509es1509$Date)), labels = c("Time", "Moneyness", "Implied Volatility"))
+tmp <- tmp[ order(tmp[,2]),]
+tmp[,2] <- -tmp[,2]
+    scatterplot3js(tmp, color = rainbow(length(ez1509es1509$Date)), labels = c("Time", "-Moneyness", "Implied Volatility"))
 })
-
-
-
 ```
 
