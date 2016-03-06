@@ -1,6 +1,5 @@
 ---
 title: "Investments: Chapter 1"
-author: "Matt Brigida"
 date: "12/28/2015"
 output: html_document
 runtime: shiny
