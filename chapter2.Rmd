@@ -17,9 +17,22 @@ The idea of a complete market is that we can replicate any security in the marke
 
 If the amrket is complete, then the value of the option is simply the cost of recreating it with the bond and the stock.  So we don't value the option *per se*, we create something that is exactly the same as the option and note its cost to create.
 
-Could the option price be any different than the value of recreating it?  No.  If it were this would afford an arbitrage.  If the optoin cost more than the cost to create it, we could sell the option, create it, and net the difference.  A similar arbitrage obtains if the replication cost is above the option price. 
+Could the option price be any different than the value of recreating it?  No.  If it were this would afford an arbitrage.  If the option cost more than the cost to create it, we could sell the option, create it, and net the difference.  A similar arbitrage obtains if the replication cost is above the option price. 
 
-We can use a bond and stock to replicate an option:
+
+## Binomial Option Valuation
+
+We start option valuation with the one-period binomial method.  If you understand this, you will understand everything of importance with respect to option valuation.  Beyond this, is simply applying mathematics to make the argument work in more realistic settings.  The underlying economic argument is the same.  
+
+Say we have the following securities:
+- one-year zero-coupon risk-free bond with 5% yield.
+- stock priced at $100 today.  The stock will either be $110 or $90 in one year.  
+- option on the stock struck at $105 with a 1 year tenor.
+
+Note the option will either be worth $5 or $0 in 1 year.  
+
+### First Approach: Using the bond and stock to replicate the option.
+
 ```{r echo = FALSE, warning = FALSE}
 require(visNetwork, quietly = TRUE)
 # minimal example
@@ -34,7 +47,18 @@ visNetwork(nodes, edges, width = "100%")
 
 ```
 
-Or an option and stock to replicate a bond:
+We will create a portfolio of the bond and stock which pays the same as the option in both states of the world.
+
+#### Replicating portfolio:
+- sell a bond with a $90 face value, which gives us $\frac{90}{(1 + 0.05)} = \$85.71$ today.
+- buy one share of the stock for $100.
+
+This portfolio costs us $\$100 - \$85.71 = \$14.29$ to create.  In one year the portfolio will pay \$20 in the up-state (the stock is $110), and \$0 in the down state (the stock is \$90).
+
+The option pays \$5 in the up-state and \$0 in the down-state.  The replicating portfolio we created is exactly 4 options, and therefore the cost to create the portfolio must be 4 times the cost of a single option.  This gives us the option's value: $\frac{\$14.29}{4} = \$3.57$.
+
+### Second Approach: Using the option and stock to replicate the bond.
+
 ```{r echo = FALSE, warning = FALSE}
 require(visNetwork, quietly = TRUE)
 # minimal example
@@ -47,3 +71,6 @@ edges <- data.frame(from = c(1,2,1), to = c(3,3,2),
                     arrows = c("to", "to", ""))
 visNetwork(nodes, edges, width = "100%")
 ```
+
+
+Note above we used zero-coupon bonds. Zeros are important for derivative valuation because we know exactly what our return will be when we hold them (unlike with coupon bonds). 
