@@ -57,6 +57,8 @@ This portfolio costs us $\$100 - \$85.71 = \$14.29$ to create.  In one year the 
 
 The option pays \$5 in the up-state and \$0 in the down-state.  The replicating portfolio we created is exactly 4 options, and therefore the cost to create the portfolio must be 4 times the cost of a single option.  This gives us the option's value: $\frac{\$14.29}{4} = \$3.57$.
 
+If the market price is not \$3.57, can you create an arbitrage?
+
 ### Second Approach: Using the option and stock to replicate the bond.
 
 ```{r echo = FALSE, warning = FALSE}
@@ -71,6 +73,26 @@ edges <- data.frame(from = c(1,2,1), to = c(3,3,2),
                     arrows = c("to", "to", ""))
 visNetwork(nodes, edges, width = "100%")
 ```
+
+We will create a portfolio of the option and stock which pays the same as the bond in both states of the world.
+
+#### Replicating portfolio:
+- sell 1 one-year call option with a $105 strike (the same that we are valuing).
+- buy $\frac{1}{4}$ share of the stock for $25.
+
+At time 0 we have a cash flow of $C - $25, where $C is the price of the call option.  At time 1, the replicating portfolio will pay:
+- up-state: $\$\frac{110}{4} - \$5 = \$22.50$
+- down-state: $\$\frac{90}{4} - \$0 = \$22.50$
+
+So no matter what happens, the replicating portfolio will pay \$22.50 in one year.  This is a risk-free zero-coupon bond, and therefore the price today is $\$\frac{22.50}{(1+0.05)} = \$21.43$.  So we have:
+
+$\$C - \$25 = -\$21.43 \Rightarrow \$C = \$3.57$
+
+This is exactly the same call option value we got using the first method.  
+
+Again, if the market price is not \$3.57, can you create an arbitrage?
+
+
 
 
 Note above we used zero-coupon bonds. Zeros are important for derivative valuation because we know exactly what our return will be when we hold them (unlike with coupon bonds). 
