@@ -9,6 +9,17 @@ runtime: shiny
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Now that we know what an option is at the fundamental level, we can look at the features of options which are actually traded in present markets.  The particular features of traded options and option markets can affect the demand for these options and ultimately the option price itself.  We'll also discuss how the nature of options determines the relationship between options and stock prices (which reacts to new information first for example).
+
+## Traded Options
+
+This discuss is focused on option markets in the United States.  Options are traded in 'contracts'.  An option contract is for 100 options.
+
+## Options Markets
+
+Options are traded on several exchanges such as the Chicago Board Options Exchange (CBOE) and the BOX Options Exchange ([see here for a list of national securities exchanges](https://www.sec.gov/divisions/marketreg/mrexchanges.shtml)).
+
+
 ## Constant Volatility
 
 We learned that Black-Scholes assumes a world where a stock's voltility is constant through time and for each strike price.  This assumption was made to make the mathematics and hedgeing argument easier, and not because it is consistent with what we observe in markets.  
