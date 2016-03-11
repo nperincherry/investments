@@ -11,9 +11,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Now that we know what an option is at the fundamental level, we can look at the features of options which are actually traded in present markets.  The particular features of traded options and option markets can affect the demand for these options and ultimately the option price itself.  We'll also discuss how the nature of options determines the relationship between options and stock prices (which reacts to new information first for example).
 
+The following discussion of listed options and options markets is focused on the United States.  Given the consolidation of securities exchanges, much of this would likely apply to markets around the world. 
+
 ## Traded Options
 
-This discuss is focused on option markets in the United States.  Options are traded in 'contracts'.  An option contract is for 100 options.
+Options are traded in 'contracts'.  Each option contract is for 100 options.  So if you put in an order to buy 3 AAPL call option contracts with a \$100 strike price, you are buying calls on 300 shares of AAPL.
+
+Option contracts are not adjusted for cash dividends.  
 
 ## Options Markets
 
