@@ -96,9 +96,21 @@ Again, if the market price is not \$3.57, can you create an arbitrage?
 
 ```{r echo=FALSE}
 inputPanel({
-  
-  
+ sliderInput(inputId = "stockUp", label = "Stock Price in Up-State", min = 101, max = 120, step = 1, value = 110),
+ sliderInput(inputId = "stockDn", label = "Stock Price in Down-State", min = 80, max = 99, step = 1, value = 90),
+ sliderInput(inputId = "rf", label = "Risk-Free Rate", min = .01, max = .05, step = .01, value = .01)
 })
+  
+  if((input$rf + 1) * 100 > input$stockUp) {
+    renderPrint({cat("Why bother with the option when you can have free money!")})
+  } else {
+    renderPlot({
+      ## calculate value of option using first approach ----
+      
+      
+    })
+  }
+  
 ```
 
 
@@ -110,7 +122,19 @@ Note above we used zero-coupon bonds. Zeros are important for derivative valuati
 
 The binomial method highlights the important features of option valuation in complete markets.
 
-#. We value options be creating a portfolio which replicates the option, and rely on arbitrage to ensure the prices of the replicating portfolio and the option are the same.
+#. We value options by creating a portfolio which replicates the option, and rely on arbitrage to ensure the prices of the replicating portfolio and the option are the same.
 #. Because we replicate a risk-free bond (in the second case), we discount that bond with the risk-free rate. 
+#. When delta hedging, we remove the effect of changes in the stock's price on your replicating portolio.  We therefore, don't need to know the expected return on the stock (and so we never have to specify the probability of the up and down states).
 
-### Black-Scholes-Merton
+
+
+
+
+
+
+### Black-Scholes-Merton (BSM)
+
+
+#### A Little Bit of History
+
+Prior to BSM the  
