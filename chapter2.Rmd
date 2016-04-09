@@ -127,12 +127,13 @@ The binomial method highlights the important features of option valuation in com
 #. When delta hedging, we remove the effect of changes in the stock's price on your replicating portolio.  We therefore, don't need to know the expected return on the stock (and so we never have to specify the probability of the up and down states).
 
 
-
-
-
-
-
 ### Black-Scholes-Merton (BSM)
+
+BSM is the seminal model in option pricing, because it is the first to use the complete markets (replication) method of finding the option's value.  Prior to BSM, option pricing models required the user to input an expected rate of return on the asset underlying the option.  Because we have no certain way to get the expected retun, we could only state the option's value in terms of this unknown parameter.  
+
+The paper by Black and Scholes (1973) was the first to realize you 
+
+Interestingly, the BSM option price is the limit of the binomial method as the time increment approaches zero.  However, BSM was derived prior to the binomial method.  
 
 
 #### A Little Bit of History
