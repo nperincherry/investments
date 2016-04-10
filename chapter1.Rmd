@@ -5,9 +5,23 @@ output: html_document
 runtime: shiny
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Real vs Financial Assets
+
+Real assets are the property, plants, and equipment which constitute the productive capabilities of our economy.  Financial assets are merely claims on these assets.  In fact, the sum of all financial assets in the economy is zero.  This is because, for example, a bond is a liability to the issuing company, and an asset to the holder.
+
+## The purpose of financial assets
+
+While financial assets are claims on real assets, and would not exist in an of themselves, this doesn't mean financial assets do not affect real assets.  In fact, the existence of financial assets fosters the creation of many more real assets.  Further, the better financial markets function, the more real assets can be created.
+
+There are a couple reasons for this.  First, many investors can easily pool money to buy (or build) real assets.  Second, financial assets make it much easier to transfer ownership of real assets.   Investors are more likely to invest if they may easily exit the investment without significant loss in the investment's value (there is less 'liquidity risk').
+
+# What Do Markets Do?  
+
+
+
+
+
+<!-- Move the below into a new chapter 2 -->
 
 # Trading Securities
 
