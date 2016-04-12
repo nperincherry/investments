@@ -17,8 +17,27 @@ There are a couple reasons for this.  First, many investors can easily pool mone
 
 # What Do Markets Do?  
 
+What is often overlooked in finance and economics education is a coherent explanation of why we have markets.  In fact, often graduates of these programs cannot say for certain what markets do---in my experience they often will say something about markets allowing competition.  This answer is unsatisfactory because competition in markets is a means to achieve the markets actual purpose, not the purpose itself.  Moreover, 'free' markets will often tend toward monopoly an no competition.  We have to put many constraints on markets (make them less 'free') in order to enable competition.  
 
+Put simply, markets serve two important purposes:
 
+#.  Aggregate Information
+#.  Organize Society
+
+We can show this by asking the question: why were there bread lines in the Soviet Union?  That is to say, why when prices are fixed do you often get the situation where the economy runs out of some good? To answer this question consider the following chain of events.
+
+#. There is a fungus which destroys much of the Soviet wheat crop.
+#. The price of wheat and bread are fixed, so
+	- consumer demand for bread is unchanged
+	- there is no incentive for other farmers to switch from their crop (say corn) to wheat
+#. Given reduced wheat supply, and unchanged demand, eventually wheat stocks are exhausted.
+
+Now consider this same scenario when we use a market and prices are allowed to adjust.
+
+#. There is a fungus which destroys much of the US wheat crop.
+#.  
+
+The last point I will make here is to note that US policy is often to fix prices, or suppress a market's ability to function. Take the US mortgage market as an example.  Instead of allowing mortgage interest rates to be market determined, thereby aggregating information and organizing society, the US has set a policy of keeping these rates artificially low to encourage homeownership. This mortgage markets aggregate incorrect information, and organize society in such a way as to have us spend more on housing than we otherwise would.
 
 
 <!-- Move the below into a new chapter 2 -->
