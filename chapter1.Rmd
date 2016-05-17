@@ -7,6 +7,8 @@ runtime: shiny
 
 # Real vs Financial Assets
 
+Ignore this pull request
+
 Real assets are the property, plants, and equipment which constitute the productive capabilities of our economy.  Financial assets are merely claims on these assets.  In fact, the sum of all financial assets in the economy is zero.  This is because, for example, a bond is a liability to the issuing company, and an asset to the holder.
 
 ## The purpose of financial assets
