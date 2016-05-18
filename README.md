@@ -8,3 +8,5 @@ Pull requests are definitely welcome.
 
 ### Wishlist of additions:
 
+Test commit
+
