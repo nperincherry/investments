@@ -8,3 +8,4 @@ Pull requests are definitely welcome.
 
 ### Wishlist of additions:
 
+ignore pull request
